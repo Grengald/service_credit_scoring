@@ -22,7 +22,8 @@ if submit:
     features = [int(age), float(income), int(education), int(work), int(car)]
     try:
         pred = model.predict([features])[0]
-        approved = bool(pred)
+        approved = not bool(pred)
         st.success(f"Решение: {'Одобрено' if approved else 'Отказ'}")
     except Exception as e:
         st.error(f"Ошибка предсказания: {e}")
+
